@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres:15.1
+    container_name: database
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+  pgAdmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgAdmin
+    ports:
+      - "2000:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@gmail.com
+      - PGADMIN_LISTEN_ADDRESS=0.0.0.0
+      - PGADMIN_DEFAULT_PASSWORD=admin
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command: redis-server
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: redis-commander
+    command: ./bin/redis-commander.js --redis-port 6379 --redis-host host.docker.internal --host 0.0.0.0 --port 4000
+    ports:
+      - "4000:4000"
+
+  cohortrx-user:
+    image: node:lts
+    container_name: user
+    volumes:
+      - ./:/cohortrx:rw
+    working_dir: /LLM/Coordinator
+    command:
+      - /bin/sh
+      - -c
+      - |
+        poetry install
+        poetry run start
+    ports:
+      - "8000:8000"
+  cohortrx-coordinator:
+    image: python:3.9
+    container_name: coordinator
+    volumes:
+      - ./:/cohortrx:rw
+    working_dir: /User
+    command:
+      - /bin/sh
+      - -c
+      - |
+        yarn
+        yarn dev
+    ports:
+      - "3000:3000"
+      - "3002:3002"

@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "political-capital-two",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "political-capital-two-test",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}

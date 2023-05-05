@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+  },
+  "exclude": [
+    "./dist/*",
+    "./node_modules/*"
+  ]
+}

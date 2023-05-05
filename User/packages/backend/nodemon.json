@@ -1,0 +1,10 @@
+{
+    "ignore": [
+        ""
+    ],
+    "watch": [
+        ".",
+        "../api/dist",
+        "../distributed/dist"
+    ]
+}
