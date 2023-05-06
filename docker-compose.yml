@@ -31,12 +31,11 @@ services:
     ports:
       - "4000:4000"
 
-  cohortrx-user:
-    image: node:lts
+  cohortrx-coordinator:
+    image: python:3.9
     container_name: user
     volumes:
-      - ./:/cohortrx:rw
-    working_dir: /LLM/Coordinator
+      - ./LLM/Coordinator:/cohortrx:rw
     command:
       - /bin/sh
       - -c
@@ -45,12 +44,11 @@ services:
         poetry run start
     ports:
       - "8000:8000"
-  cohortrx-coordinator:
-    image: python:3.9
-    container_name: coordinator
+  cohortrx-user:
+    image: node:lts
+    container_name: user
     volumes:
-      - ./:/cohortrx:rw
-    working_dir: /User
+      - ./User:/cohortrx:rw
     command:
       - /bin/sh
       - -c

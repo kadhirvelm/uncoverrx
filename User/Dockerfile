@@ -1,8 +1,10 @@
 FROM node:lts
 
-COPY . .
+WORKDIR /cohortrx
+
+COPY ./User .
+
 RUN yarn
 RUN yarn build
 
-WORKDIR ./packages/backend
 CMD yarn start:watch
