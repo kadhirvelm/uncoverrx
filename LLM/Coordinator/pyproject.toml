@@ -3,12 +3,12 @@ name = "coordinator"
 version = "1.0.0"
 description = "The coordinator for all the LLMs"
 authors = ["Kadhir Mani <kadhirvelm@gmail.com>"]
-readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^4.2.1"
 psycopg2-binary = "^2.9.6"
+library = { }
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"

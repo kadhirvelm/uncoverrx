@@ -1,10 +1,10 @@
-FROM python:3.9
+FROM python:3.11
 
-RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN pip install poetry
 
 WORKDIR /cohortrx
 
-COPY ./LLM/Coordinator .
+COPY . .
 
 RUN poetry install
 

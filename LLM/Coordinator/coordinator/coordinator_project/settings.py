@@ -80,7 +80,7 @@ DATABASES = {
         "NAME": "cohortrx",
         "USER": "postgres",
         "PASSWORD": "admin",
-        "HOST": "localhost",
+        "HOST": "host.docker.internal",
         "PORT": "5432",
     }
 }

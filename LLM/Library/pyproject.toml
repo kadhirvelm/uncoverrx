@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "library"
+version = "1.0.0"
+description = "The shared utilities between the coordinator and the LLM nodes"
+authors = ["Kadhir Mani <kadhirvelm@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

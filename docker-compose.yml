@@ -32,8 +32,8 @@ services:
       - "4000:4000"
 
   cohortrx-coordinator:
-    image: python:3.9
-    container_name: user
+    image: cohortrx-coordinator:latest
+    container_name: coordinator
     volumes:
       - ./LLM/Coordinator:/cohortrx:rw
     command:
@@ -45,7 +45,7 @@ services:
     ports:
       - "8000:8000"
   cohortrx-user:
-    image: node:lts
+    image: cohortrx-user:latest
     container_name: user
     volumes:
       - ./User:/cohortrx:rw

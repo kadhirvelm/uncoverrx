@@ -9,3 +9,4 @@ class QueryRequest(models.Model):
 
     class Meta:
         db_table = "QueryRequest"
+        app = "query"
