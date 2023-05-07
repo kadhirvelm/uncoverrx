@@ -1,8 +1,8 @@
 import json
 import logging
 import uuid
+from datetime import datetime
 
-from chatgpt import chatgpt_process
 from coordinator.query.dataclasses.request_exploration_text import (
     RequestExplorationText,
 )
@@ -28,11 +28,14 @@ def request_exploration_text(request):
         query_request_rid=query_request_rid,
         input=exploration_text.input,
         status=models.RequestStatus.PENDING,
+        date_request=datetime.now(),
     ).save()
 
     logging.info(
         f"Sending request out to ChatGPT with query request RID: {query_request_rid}"
     )
-    chatgpt_process.chatgpt_process.delay(query_request_rid)
+    celery_app.send_task(
+        name=instantiate_celery.QueueNames.CHATGPT_PROCESS, args=[query_request_rid]
+    )
 
     return JsonResponse({"query_request_rid": query_request_rid})

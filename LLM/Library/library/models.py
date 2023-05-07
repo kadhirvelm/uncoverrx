@@ -17,6 +17,7 @@ class QueryRequest(models.Model):
     )
     status = models.TextField()
     input = models.JSONField()
+    date_request = models.DateTimeField()
     result = models.JSONField(null=True)
 
     class Meta:

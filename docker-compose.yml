@@ -51,6 +51,7 @@ services:
     container_name: chatgpt
     environment:
       - DJANGO_SETTINGS_MODULE=settings
+      - OPENAI_API_KEY=${OPEN_AI_KEY}
     volumes:
       - ./LLM/Library:/cohortrx/Library:rw
       - ./LLM/ChatGPT:/cohortrx/ChatGPT:rw
