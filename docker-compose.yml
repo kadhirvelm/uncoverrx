@@ -60,18 +60,6 @@ services:
       - |
         poetry install
         poetry run start
-  # biogpt-process:
-  #   image: cohortrx-biogpt:latest
-  #   container_name: biogpt
-  #   volumes:
-  #     - ./LLM/Library:/cohortrx/Library:rw
-  #     - ./LLM/BioGPT:/cohortrx/BioGPT:rw
-  #   command:
-  #     - /bin/sh
-  #     - -c
-  #     - |
-  #       poetry install
-  #       poetry run start
 
   cohortrx-user:
     image: cohortrx-user:latest
