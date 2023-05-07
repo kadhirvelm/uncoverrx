@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "ms-python.black-formatter",
+        "streetsidesoftware.code-spell-checker",
+        "dbaeumer.vscode-eslint",
+        "ms-python.isort",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "stylelint.vscode-stylelint"
+    ]
+}

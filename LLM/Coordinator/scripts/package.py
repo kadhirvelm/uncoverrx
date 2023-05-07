@@ -5,7 +5,7 @@ def start():
     return subprocess.run(
         [
             "watchmedo",
-            "autorestart",
+            "auto-restart",
             "--directory",
             "../../",
             "--pattern",

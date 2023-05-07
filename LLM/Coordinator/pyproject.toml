@@ -12,6 +12,7 @@ library = {path = "../Library", develop=true}
 chatgpt = {path = "../ChatGPT", develop=true}
 celery = "^5.2.7"
 redis = "^4.5.4"
+djangorestframework = "^3.14.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
