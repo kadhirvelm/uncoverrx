@@ -7,7 +7,6 @@
     },
     "python.formatting.provider": "none",
     "python.analysis.extraPaths": [
-        "./Api",
         "./LLM/BioGPT",
         "./LLM/ChatGPT",
         "./LLM/Coordinator",
