@@ -2,7 +2,7 @@ FROM node:lts
 
 WORKDIR /cohortrx
 
-COPY ./User .
+COPY . .
 
 RUN yarn
 RUN yarn build

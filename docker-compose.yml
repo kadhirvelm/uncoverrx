@@ -32,10 +32,12 @@ services:
       - "4000:4000"
 
   cohortrx-coordinator:
-    image: python:3.9
-    container_name: user
+    image: cohortrx-coordinator:latest
+    container_name: coordinator
     volumes:
-      - ./LLM/Coordinator:/cohortrx:rw
+      - ./LLM/Library:/cohortrx/Library:rw
+      - ./LLM/ChatGPT:/cohortrx/ChatGPT:rw
+      - ./LLM/Coordinator:/cohortrx/Coordinator:rw
     command:
       - /bin/sh
       - -c
@@ -44,8 +46,23 @@ services:
         poetry run start
     ports:
       - "8000:8000"
+  chatgpt-process:
+    image: cohortrx-chatgpt:latest
+    container_name: chatgpt
+    environment:
+      - DJANGO_SETTINGS_MODULE=settings
+    volumes:
+      - ./LLM/Library:/cohortrx/Library:rw
+      - ./LLM/ChatGPT:/cohortrx/ChatGPT:rw
+    command:
+      - /bin/sh
+      - -c
+      - |
+        poetry install
+        poetry run start
+
   cohortrx-user:
-    image: node:lts
+    image: cohortrx-user:latest
     container_name: user
     volumes:
       - ./User:/cohortrx:rw

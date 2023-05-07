@@ -5,7 +5,7 @@ def start():
     return subprocess.run(
         [
             "watchmedo",
-            "autorestart",
+            "auto-restart",
             "--directory",
             "../../",
             "--pattern",
@@ -14,14 +14,10 @@ def start():
             "--signal",
             "SIGTERM",
             "--",
-            "python",
-            "manage.py",
-            "runserver",
-            "0.0.0.0:8000",
+            "celery",
+            "-A",
+            "chatgpt_process",
+            "worker",
         ],
-        cwd="coordinator",
+        cwd="chatgpt",
     )
-
-
-def lint():
-    return subprocess.run(["black", "."])

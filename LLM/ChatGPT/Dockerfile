@@ -6,9 +6,8 @@ WORKDIR /cohortrx
 
 COPY ./LLM/Library ./Library
 COPY ./LLM/ChatGPT ./ChatGPT
-COPY ./LLM/Coordinator ./Coordinator
 
-WORKDIR /cohortrx/Coordinator
+WORKDIR /cohortrx/ChatGPT
 
 RUN poetry install
 

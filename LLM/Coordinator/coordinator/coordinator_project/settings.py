@@ -50,7 +50,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "coordinator.urls"
+ROOT_URLCONF = "coordinator_project.urls"
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "coordinator.wsgi.application"
+WSGI_APPLICATION = "coordinator_project.wsgi.application"
 
 
 # Database
@@ -80,7 +80,7 @@ DATABASES = {
         "NAME": "cohortrx",
         "USER": "postgres",
         "PASSWORD": "admin",
-        "HOST": "localhost",
+        "HOST": "host.docker.internal",
         "PORT": "5432",
     }
 }
