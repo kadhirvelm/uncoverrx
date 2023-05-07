@@ -3,11 +3,12 @@ name = "library"
 version = "1.0.0"
 description = "The shared utilities between the coordinator and the LLM nodes"
 authors = ["Kadhir Mani <kadhirvelm@gmail.com>"]
-readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^4.2.1"
+celery = "^5.2.7"
+redis = "^4.5.4"
 
 
 [build-system]

@@ -8,10 +8,14 @@ authors = ["Kadhir Mani <kadhirvelm@gmail.com>"]
 python = "^3.11"
 django = "^4.2.1"
 psycopg2-binary = "^2.9.6"
-library = { }
+library = {path = "../Library", develop=true}
+chatgpt = {path = "../ChatGPT", develop=true}
+celery = "^5.2.7"
+redis = "^4.5.4"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
+watchdog = "^3.0.0"
 
 [build-system]
 requires = ["poetry-core"]
