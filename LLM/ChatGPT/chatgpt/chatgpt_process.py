@@ -2,8 +2,6 @@ import django
 
 django.setup()
 
-import os
-
 import openai
 from library import instantiate_celery, models
 
