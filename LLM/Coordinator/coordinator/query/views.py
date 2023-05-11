@@ -3,9 +3,7 @@ import logging
 import uuid
 from datetime import datetime
 
-from coordinator.query.dataclasses.request_exploration_text import (
-    RequestExplorationText,
-)
+from coordinator.query.dataclasses.request_exploration_text import ResolveQueryRequest
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from library import instantiate_celery, models
@@ -19,23 +17,19 @@ def index():
 
 @require_http_methods(["POST"])
 def request_exploration_text(request):
-    exploration_text: RequestExplorationText = RequestExplorationText.schema().loads(
+    resolve_query_request: ResolveQueryRequest = ResolveQueryRequest.schema().loads(
         request.body
     )
 
-    query_request_rid = uuid.uuid4()
-    models.QueryRequest(
-        query_request_rid=query_request_rid,
-        input=exploration_text.input,
-        status=models.RequestStatus.PENDING,
-        date_request=datetime.now(),
-    ).save()
+    # In theory we could fetch the query here, understand what kind of request the user made
+    # and pick the according worker to send the request to
 
     logging.info(
-        f"Sending request out to ChatGPT with query request RID: {query_request_rid}"
+        f"Sending request out to ChatGPT with query request RID: {resolve_query_request}"
     )
     celery_app.send_task(
-        name=instantiate_celery.QueueNames.CHATGPT_PROCESS, args=[query_request_rid]
+        name=instantiate_celery.QueueNames.CHATGPT_PROCESS,
+        args=[resolve_query_request.query_request_rid],
     )
 
-    return JsonResponse({"query_request_rid": query_request_rid})
+    return JsonResponse({"query_request_rid": resolve_query_request.query_request_rid})
