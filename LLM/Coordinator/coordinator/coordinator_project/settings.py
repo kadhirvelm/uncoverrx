@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
 import sys
 from pathlib import Path
 
@@ -81,7 +82,7 @@ DATABASES = {
         "NAME": "cohortrx",
         "USER": "postgres",
         "PASSWORD": "admin",
-        "HOST": "host.docker.internal",
+        "HOST": os.environ.get("POSTGRES_HOST", "host.docker.internal"),
         "PORT": "5432",
     }
 }

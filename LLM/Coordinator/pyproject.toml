@@ -25,3 +25,4 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 start = "scripts.package:start"
 lint = "scripts.package:lint"
+create_migration = "scripts.package:create_migration"
