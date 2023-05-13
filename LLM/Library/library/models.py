@@ -30,7 +30,7 @@ class QueryRequest(models.Model):
     status = models.TextField()
     input = models.JSONField()
     request_date = models.DateTimeField()
-    completion_date = models.DateTimeField()
+    completion_date = models.DateTimeField(null=True)
     result = models.JSONField(null=True)
 
     class Meta:
@@ -41,8 +41,20 @@ class QueryRequest(models.Model):
 
 class ExplorationXQueryRequest(models.Model):
     exploration_x_query_request_id = models.AutoField(primary_key=True)
-    exploration_rid = models.ForeignKey(Exploration, on_delete=models.DO_NOTHING)
-    query_request_rid = models.ForeignKey(QueryRequest, on_delete=models.DO_NOTHING)
+    exploration_rid = models.ForeignKey(
+        Exploration,
+        related_name="Exploration",
+        to_field="exploration_rid",
+        on_delete=models.DO_NOTHING,
+        db_column="exploration_rid",
+    )
+    query_request_rid = models.ForeignKey(
+        QueryRequest,
+        related_name="QueryRequest",
+        to_field="query_request_rid",
+        on_delete=models.DO_NOTHING,
+        db_column="query_request_rid",
+    )
     position = models.TextField()
 
     class Meta:
