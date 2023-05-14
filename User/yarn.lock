@@ -11740,6 +11740,11 @@ open@^8.0.9, open@^8.4.0:
     is-docker "^2.1.1"
     is-wsl "^2.2.0"
 
+openapi-fetch@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/openapi-fetch/-/openapi-fetch-0.1.4.tgz#889c5fe96c8d73a5209784a7a8bd02ff7cdbc9f7"
+  integrity sha512-3usuk7JlrYMbDWZhLhPBOyt+S41TyCEH4oV4qzRmCrmQLveYN3sYjoVS9SNsL7WV8ApdLzwMmm0o+xAnsFFVeg==
+
 optionator@^0.8.1:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/optionator/-/optionator-0.8.3.tgz#84fa1d036fe9d3c7e21d99884b601167ec8fb495"

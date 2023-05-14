@@ -1,14 +1,6 @@
 import uuid
-from enum import Enum
 
 from django.db import models
-
-
-class RequestStatus(str, Enum):
-    PENDING = "pending"
-    PROCESSING = "processing"
-    COMPLETED = "completed"
-    ERROR = "error"
 
 
 class Exploration(models.Model):
