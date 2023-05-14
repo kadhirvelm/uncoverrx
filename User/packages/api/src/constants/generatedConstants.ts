@@ -1,14 +1,26 @@
 // To parse this data:
 //
-//   import { Convert, Constants } from "./file";
+//   import { Convert, GeneratedConstants } from "./file";
 //
-//   const constants = Convert.toConstants(json);
+//   const generatedConstants = Convert.toGeneratedConstants(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface Constants {
-    status: Status;
+export interface GeneratedConstants {
+    llm_input:  LLMInput;
+    llm_result: LLMResult;
+    status:     Status;
+}
+
+export interface LLMInput {
+    intent:  string;
+    message: string;
+}
+
+export interface LLMResult {
+    message:    string;
+    raw_result: { [key: string]: any };
 }
 
 export enum Status {
@@ -21,12 +33,12 @@ export enum Status {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toConstants(json: string): Constants {
-        return cast(JSON.parse(json), r("Constants"));
+    public static toGeneratedConstants(json: string): GeneratedConstants {
+        return cast(JSON.parse(json), r("GeneratedConstants"));
     }
 
-    public static constantsToJson(value: Constants): string {
-        return JSON.stringify(uncast(value, r("Constants")), null, 2);
+    public static generatedConstantsToJson(value: GeneratedConstants): string {
+        return JSON.stringify(uncast(value, r("GeneratedConstants")), null, 2);
     }
 }
 
@@ -183,8 +195,18 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "Constants": o([
+    "GeneratedConstants": o([
+        { json: "llm_input", js: "llm_input", typ: r("LLMInput") },
+        { json: "llm_result", js: "llm_result", typ: r("LLMResult") },
         { json: "status", js: "status", typ: r("Status") },
+    ], false),
+    "LLMInput": o([
+        { json: "intent", js: "intent", typ: "" },
+        { json: "message", js: "message", typ: "" },
+    ], false),
+    "LLMResult": o([
+        { json: "message", js: "message", typ: "" },
+        { json: "raw_result", js: "raw_result", typ: m("any") },
     ], false),
     "Status": [
         "completed",

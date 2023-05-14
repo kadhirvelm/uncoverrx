@@ -144,3 +144,5 @@ LOGGING = {
         "level": "INFO",
     },
 }
+
+TEST_RUNNER = "redgreenunittest.django.runner.RedGreenDiscoverRunner"

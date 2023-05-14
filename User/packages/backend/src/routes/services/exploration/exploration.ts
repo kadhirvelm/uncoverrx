@@ -1,4 +1,4 @@
-import { IExplorationRid, IExplorationService } from "@cohortrx-user/api";
+import { Status, IExplorationService } from "@cohortrx-user/api";
 import { CohortRxDatabase } from "../../../database/client";
 import { v4 } from "uuid";
 import { assembleExplorations, createExploration, indexCrossTableEntries } from "./utils";
@@ -51,7 +51,7 @@ export async function addNewRequest(payload: IExplorationService["addNewRequest"
 
     await Promise.all([
         // TODO: find a way to coordinate the "status" value with the python library
-        CohortRxDatabase.queryRequest.create({ data: { query_request_rid, status: "pending", input: payload.input as any, request_date: new Date() } }),
+        CohortRxDatabase.queryRequest.create({ data: { query_request_rid, status: Status.Pending.toString(), input: payload.input as any, request_date: new Date() } }),
         CohortRxDatabase.explorationXQueryRequest.create({ data: { position: payload.position.toString(), exploration_rid: payload.explorationRid, query_request_rid, } }),
     ]);
 

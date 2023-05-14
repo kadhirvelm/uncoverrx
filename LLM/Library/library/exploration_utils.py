@@ -24,15 +24,7 @@ def get_all_previous_query_requests(
         models.ExplorationXQueryRequest
     ] = all_cross_entries.filter(position__lte=this_request_cross_entry.position)
 
-    previous_query_requests = models.QueryRequest.objects.filter(
-        query_request_rid__in=previous_cross_entries.values("query_request_rid")
-    )
-    previous_query_requests_indexed = {
-        previous_query_requests[index].query_request_rid: previous_query_requests[index]
-        for index in range(0, len(previous_query_requests))
-    }
-
     return [
-        previous_query_requests_indexed[cross_entry.query_request_rid]
+        cross_entry.query_request_rid
         for cross_entry in previous_cross_entries.order_by("position")
     ]
