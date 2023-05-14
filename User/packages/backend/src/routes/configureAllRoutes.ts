@@ -16,7 +16,7 @@ export function configureAllRoutes(app: Express.Express) {
         createNewExploration,
         getExplorations,
         addNewRequest,
-    })
+    });
 
     configureFrontendRoutes(app);
 }

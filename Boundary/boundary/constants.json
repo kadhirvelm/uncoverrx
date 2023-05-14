@@ -7,19 +7,65 @@
             "additionalProperties": false,
             "properties": {
                 "status": {
-                    "type": "string",
-                    "enum": [
-                        "pending",
-                        "processing",
-                        "completed",
-                        "error"
-                    ]
+                    "$ref": "#/definitions/Status"
+                },
+                "llm_input": {
+                    "$ref": "#/definitions/LLMInput"
+                },
+                "llm_result": {
+                    "$ref": "#/definitions/LLMResult"
                 }
             },
             "required": [
-                "status"
+                "status",
+                "llm_input",
+                "llm_result"
             ],
             "title": "CohortRx"
+        },
+        "Status": {
+            "type": "string",
+            "enum": [
+                "pending",
+                "processing",
+                "completed",
+                "error"
+            ],
+            "title": "Status"
+        },
+        "LLMInput": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "intent": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "message",
+                "intent"
+            ],
+            "title": "LLMInput"
+        },
+        "LLMResult": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "raw_result": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "message",
+                "raw_result"
+            ],
+            "title": "LLMResult"
         }
     }
 }

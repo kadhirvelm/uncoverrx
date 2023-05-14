@@ -29,3 +29,7 @@ def lint():
 
 def create_migration():
     return subprocess.run(["python", "manage.py", "makemigrations"], cwd="coordinator")
+
+
+def test():
+    return subprocess.run(["python", "manage.py", "test"], cwd="coordinator")

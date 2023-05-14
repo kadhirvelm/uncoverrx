@@ -5,8 +5,8 @@ django.setup()
 from typing import List
 
 import openai
-from library import exploration_utils, instantiate_celery, llm_dataclasses, models
-from library.constants import constants
+from library import exploration_utils, instantiate_celery, models
+from library.constants import generated_constants
 
 celery_app = instantiate_celery.instantiate_celery("chatgpt")
 
@@ -15,14 +15,12 @@ def shape_previous_query_requests(previous_query_requests: List[models.QueryRequ
     previous_chat_completions = []
 
     for previous_query_request in previous_query_requests:
-        if previous_query_request.status != constants.Status.COMPLETED:
+        if previous_query_request.status != generated_constants.Status.COMPLETED:
             continue
 
-        llm_input: llm_dataclasses.LLMInput = llm_dataclasses.LLMInput.schema().loads(
-            previous_query_request.input
-        )
-        llm_result: llm_dataclasses.LLMResult = (
-            llm_dataclasses.LLMResult.schema().loads(previous_query_request.result)
+        llm_input = generated_constants.LLMInput.from_dict(previous_query_request.input)
+        llm_result = generated_constants.LLMResult.from_dict(
+            previous_query_request.result
         )
 
         previous_chat_completions.append({"role": "user", "content": llm_input.message})
@@ -40,7 +38,7 @@ def chatgpt_process(query_request_rid: str):
     ).first()
 
     try:
-        query_request.status = constants.Status.PROCESSING
+        query_request.status = generated_constants.Status.PROCESSING
         query_request.save()
 
         all_previous_query_requests = exploration_utils.get_all_previous_query_requests(
@@ -50,9 +48,7 @@ def chatgpt_process(query_request_rid: str):
             all_previous_query_requests
         )
 
-        llm_input_request: llm_dataclasses.LLMInput = (
-            llm_dataclasses.LLMInput.schema().loads(query_request.input)
-        )
+        llm_input_request = generated_constants.LLMInput.from_dict(query_request.input)
 
         chat = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
@@ -70,18 +66,16 @@ def chatgpt_process(query_request_rid: str):
             ],
         )
 
-        llm_result_from_request: llm_dataclasses.LLMResult = (
-            llm_dataclasses.LLMResult.schema().loads(
-                {"message": chat["choices"][0]["message"], "raw_result": chat}
-            )
+        llm_result_from_request = generated_constants.LLMResult.from_dict(
+            {"message": chat["choices"][0]["message"], "raw_result": chat}
         )
 
-        query_request.status = constants.Status.COMPLETED
-        query_request.result = llm_result_from_request
+        query_request.status = generated_constants.Status.COMPLETED
+        query_request.result = llm_result_from_request.to_dict()
 
         query_request.save()
     except Exception as e:
-        query_request.status = constants.Status.ERROR
+        query_request.status = generated_constants.Status.ERROR
         query_request.save()
 
         print(e)

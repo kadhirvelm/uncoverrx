@@ -12,8 +12,9 @@ library = {path = "../Library", develop=true}
 celery = "^5.2.7"
 redis = "^4.5.4"
 djangorestframework = "^3.14.0"
-dataclasses-json = "^0.5.7"
 django-ninja = "^0.21.0"
+arrow = "^1.2.3"
+redgreenunittest = "^0.1.1"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
@@ -27,3 +28,4 @@ build-backend = "poetry.core.masonry.api"
 start = "scripts.package:start"
 lint = "scripts.package:lint"
 create_migration = "scripts.package:create_migration"
+test = "scripts.package:test"

@@ -1,5 +1,5 @@
 import { IService, implementEndpoints } from "../../common/generics";
-import { IQueryRequestInput } from "./types";
+import { LLMInput } from "../../constants/generatedConstants";
 import { IExploration, IExplorationRid } from "./types";
 
 export interface IExplorationService extends IService {
@@ -15,12 +15,12 @@ export interface IExplorationService extends IService {
     };
     addNewRequest: {
         payload: {
-            explorationRid: IExplorationRid,
-            position: number,
-            input: IQueryRequestInput;
+            explorationRid: IExplorationRid;
+            position: number;
+            input: LLMInput;
         };
         response: IExploration;
-    }
+    };
 }
 
 const { backend, frontend } = implementEndpoints<IExplorationService>({
