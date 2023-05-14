@@ -3,54 +3,52 @@
  * Do not make direct changes to the file.
  */
 
-
 export interface paths {
-  "/api/query/request_exploration_text": {
-    /** Request Exploration Text */
-    post: operations["coordinator_query_views_request_exploration_text"];
-  };
+    "/api/query/request_exploration_text": {
+        /** Request Exploration Text */
+        post: operations["coordinator_query_views_request_exploration_text"];
+    };
 }
 
 export type webhooks = Record<string, never>;
 
 export interface components {
-  schemas: {
-    /** ResolveQueryResponse */
-    ResolveQueryResponse: {
-      /** Query Request Rid */
-      query_request_rid: string;
+    schemas: {
+        /** ResolveQueryResponse */
+        ResolveQueryResponse: {
+            /** Query Request Rid */
+            query_request_rid: string;
+        };
+        /** ResolveQueryRequest */
+        ResolveQueryRequest: {
+            /** Query Request Rid */
+            query_request_rid: string;
+        };
     };
-    /** ResolveQueryRequest */
-    ResolveQueryRequest: {
-      /** Query Request Rid */
-      query_request_rid: string;
-    };
-  };
-  responses: never;
-  parameters: never;
-  requestBodies: never;
-  headers: never;
-  pathItems: never;
+    responses: never;
+    parameters: never;
+    requestBodies: never;
+    headers: never;
+    pathItems: never;
 }
 
 export type external = Record<string, never>;
 
 export interface operations {
-
-  /** Request Exploration Text */
-  coordinator_query_views_request_exploration_text: {
-    requestBody: {
-      content: {
-        "application/json": components["schemas"]["ResolveQueryRequest"];
-      };
-    };
-    responses: {
-      /** @description OK */
-      200: {
-        content: {
-          "application/json": components["schemas"]["ResolveQueryResponse"];
+    /** Request Exploration Text */
+    coordinator_query_views_request_exploration_text: {
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ResolveQueryRequest"];
+            };
         };
-      };
+        responses: {
+            /** @description OK */
+            200: {
+                content: {
+                    "application/json": components["schemas"]["ResolveQueryResponse"];
+                };
+            };
+        };
     };
-  };
 }

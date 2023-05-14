@@ -5,16 +5,16 @@
 @import "./styles/variables";
 
 body {
+
+    background: rgba($yellow, 0.08) !important; // HACK
+    color: $black;
     display: flex;
     font-family: "Roboto", sans-serif;
+    font-size: 14px;
     height: 100vh;
     margin: 0;
     overflow-y: auto;
     width: 100vw;
-    font-size: 14px;
-    color: $black;
-
-    background: rgba($yellow, 0.08) !important; // HACK
 }
 
 .root {

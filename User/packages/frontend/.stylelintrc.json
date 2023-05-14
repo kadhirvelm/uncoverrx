@@ -1,13 +1,23 @@
 {
     "extends": "stylelint-config-sass-guidelines",
-    "plugins": ["stylelint-order"],
+    "plugins": [
+        "stylelint-order"
+    ],
     "rules": {
-        "order/order": ["custom-properties", "declarations"],
+        "order/order": [
+            "custom-properties",
+            "declarations"
+        ],
         "selector-class-pattern": null,
         "indentation": 4,
         "max-nesting-depth": 4,
         "string-quotes": "double",
-        "scss/percent-placeholder-pattern": null
+        "scss/percent-placeholder-pattern": null,
+        "no-missing-end-of-source-newline": null
     },
-    "ignoreFiles": ["**/*.js", "**/*.ts", "**/*.tsx"]
+    "ignoreFiles": [
+        "**/*.js",
+        "**/*.ts",
+        "**/*.tsx"
+    ]
 }

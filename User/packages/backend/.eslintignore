@@ -3,3 +3,5 @@ node_modules/*
 *.d.ts
 webpack.config.js
 src/backendStack/*
+
+src/coordinator/schema.ts

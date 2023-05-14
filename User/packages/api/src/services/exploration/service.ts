@@ -15,12 +15,12 @@ export interface IExplorationService extends IService {
     };
     addNewRequest: {
         payload: {
-            explorationRid: IExplorationRid,
-            position: number,
+            explorationRid: IExplorationRid;
+            position: number;
             input: LLMInput;
         };
         response: IExploration;
-    }
+    };
 }
 
 const { backend, frontend } = implementEndpoints<IExplorationService>({
