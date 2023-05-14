@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/CohortRx",
+    "definitions": {
+        "CohortRx": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "pending",
+                        "processing",
+                        "completed",
+                        "error"
+                    ]
+                }
+            },
+            "required": [
+                "status"
+            ],
+            "title": "CohortRx"
+        }
+    }
+}

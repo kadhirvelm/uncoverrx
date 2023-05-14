@@ -2,16 +2,18 @@
     "name": "cohortrx-user",
     "version": "1.0.0",
     "description": "The node stack that supports the user-facing application",
-    "dependencies": {},
-    "private": true,
-    "devDependencies": {
-        "openapi-typescript": ""
+    "dependencies": {
+        "node-fetch": "^3.3.1",
+        "openapi-typescript": "^6.2.4",
+        "quicktype": "^23.0.30"
     },
+    "private": true,
     "engines": {
         "node": "^18.12.1"
     },
     "scripts": {
-        "build": ""
+        "build": "node scripts/getDefinition.js",
+        "constants": "node scripts/getConstants.js"
     },
     "repository": {
         "type": "git",
@@ -21,5 +23,6 @@
     "bugs": {
         "url": "https://github.com/kadhirvelm/cohortrx/issues"
     },
+    "type": "module",
     "homepage": "https://github.com/kadhirvelm/cohortrx"
 }

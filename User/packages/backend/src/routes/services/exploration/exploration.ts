@@ -2,6 +2,7 @@ import { IExplorationRid, IExplorationService } from "@cohortrx-user/api";
 import { CohortRxDatabase } from "../../../database/client";
 import { v4 } from "uuid";
 import { assembleExplorations, createExploration, indexCrossTableEntries } from "./utils";
+import { CoordinatorClient } from "../../../coordinator/coordinatorClient";
 
 export async function createNewExploration(payload: IExplorationService["createNewExploration"]["payload"]): Promise<IExplorationService["createNewExploration"]["response"]> {
     const newExploration = await CohortRxDatabase.exploration.create({
@@ -54,7 +55,7 @@ export async function addNewRequest(payload: IExplorationService["addNewRequest"
         CohortRxDatabase.explorationXQueryRequest.create({ data: { position: payload.position.toString(), exploration_rid: payload.explorationRid, query_request_rid, } }),
     ]);
 
-    // TODO: sent out request to the Coordinator
+    await CoordinatorClient("/api/query/request_exploration_text", { body: { query_request_rid } });
 
     return (await getExplorations({ explorationRids: [payload.explorationRid] }))[0];
 }

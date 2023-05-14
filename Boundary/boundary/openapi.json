@@ -6,7 +6,7 @@
         "description": ""
     },
     "paths": {
-        "/query/api/request_exploration_text": {
+        "/api/query/request_exploration_text": {
             "post": {
                 "operationId": "coordinator_query_views_request_exploration_text",
                 "summary": "Request Exploration Text",

@@ -5,7 +5,7 @@
 
 
 export interface paths {
-  "/query/api/request_exploration_text": {
+  "/api/query/request_exploration_text": {
     /** Request Exploration Text */
     post: operations["coordinator_query_views_request_exploration_text"];
   };

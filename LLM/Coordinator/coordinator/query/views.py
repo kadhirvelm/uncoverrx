@@ -2,11 +2,12 @@ import logging
 
 from django.http import JsonResponse
 from library import instantiate_celery
-from ninja import NinjaAPI, Schema
+from ninja import Router, Schema
 
 celery_app = instantiate_celery.instantiate_celery("coordinator_project")
 
-api = NinjaAPI(csrf=True)
+
+router = Router()
 
 
 def index():
@@ -21,7 +22,7 @@ class ResolveQueryResponse(Schema):
     query_request_rid: str
 
 
-@api.post("/request_exploration_text", response=ResolveQueryResponse)
+@router.post("/request_exploration_text", response=ResolveQueryResponse)
 def request_exploration_text(request, resolve_query_request: ResolveQueryRequest):
     # In theory we could fetch the query here, understand what kind of request the user made
     # and pick the according worker to send the request to
