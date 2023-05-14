@@ -1,0 +1,70 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "NinjaAPI",
+        "version": "1.0.0",
+        "description": ""
+    },
+    "paths": {
+        "/query/api/request_exploration_text": {
+            "post": {
+                "operationId": "coordinator_query_views_request_exploration_text",
+                "summary": "Request Exploration Text",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResolveQueryResponse"
+                                }
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResolveQueryRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ResolveQueryResponse": {
+                "title": "ResolveQueryResponse",
+                "type": "object",
+                "properties": {
+                    "query_request_rid": {
+                        "title": "Query Request Rid",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query_request_rid"
+                ]
+            },
+            "ResolveQueryRequest": {
+                "title": "ResolveQueryRequest",
+                "type": "object",
+                "properties": {
+                    "query_request_rid": {
+                        "title": "Query Request Rid",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query_request_rid"
+                ]
+            }
+        }
+    },
+    "servers": null
+}

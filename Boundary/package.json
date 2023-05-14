@@ -1,0 +1,25 @@
+{
+    "name": "cohortrx-user",
+    "version": "1.0.0",
+    "description": "The node stack that supports the user-facing application",
+    "dependencies": {},
+    "private": true,
+    "devDependencies": {
+        "openapi-typescript": ""
+    },
+    "engines": {
+        "node": "^18.12.1"
+    },
+    "scripts": {
+        "build": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kadhirvelm/cohortrx"
+    },
+    "author": "Kadhirvel Manickam",
+    "bugs": {
+        "url": "https://github.com/kadhirvelm/cohortrx/issues"
+    },
+    "homepage": "https://github.com/kadhirvelm/cohortrx"
+}
