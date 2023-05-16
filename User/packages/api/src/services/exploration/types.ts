@@ -1,4 +1,4 @@
-import { Exploration, QueryRequest } from "@prisma/client";
+import { Exploration, QueryRequest } from "@cohortrx-user/prisma-client";
 import { LLMInput, LLMResult } from "../../constants/generatedConstants";
 
 export type IQueryRequestRid = string & { _brand: "query-request-rid" };
@@ -18,3 +18,5 @@ export interface IExploration extends Omit<Exploration, "metadata"> {
     };
     queryRequests: IQueryRequest[];
 }
+
+export type IBasicExploration = Omit<IExploration, "queryRequests">;

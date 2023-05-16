@@ -2,7 +2,9 @@ FROM node:lts
 
 WORKDIR /cohortrx
 
-COPY . .
+RUN yarn set version stable
+
+COPY ./User .
 
 RUN yarn
 RUN yarn build
