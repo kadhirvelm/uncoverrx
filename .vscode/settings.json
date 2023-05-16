@@ -1,4 +1,12 @@
 {
+    "search.exclude": {
+        "**/.yarn": true,
+        "**/.pnp.*": true
+    },
+    "eslint.nodePath": "./User/.yarn/sdks",
+    "prettier.prettierPath": "./User/.yarn/sdks/prettier/index.js",
+    "typescript.tsdk": "./User/.yarn/sdks/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.codeActionsOnSave": {

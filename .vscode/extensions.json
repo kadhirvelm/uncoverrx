@@ -2,6 +2,8 @@
     "recommendations": [
         "ms-python.black-formatter",
         "streetsidesoftware.code-spell-checker",
+        "arcanis.vscode-zipfs",
+        "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
         "ms-python.isort",
         "ms-python.vscode-pylance",

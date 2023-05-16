@@ -7,6 +7,6 @@ COPY . .
 RUN yarn set version stable
 
 RUN yarn
-RUN yarn build
+# RUN yarn build
 
 CMD yarn start:watch

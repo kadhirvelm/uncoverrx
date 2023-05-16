@@ -6,7 +6,7 @@ import {
     LLMInput,
     LLMResult,
 } from "@cohortrx-user/api";
-import { Exploration, ExplorationXQueryRequest, QueryRequest } from "@prisma/client";
+import { Exploration, ExplorationXQueryRequest, QueryRequest } from "@cohortrx-user/prisma-client";
 import _ from "lodash";
 
 export function createExploration(exploration: Exploration, queryRequests: IQueryRequest[]): IExploration {
