@@ -4,6 +4,14 @@ import { v4 } from "uuid";
 import { assembleExplorations, createExploration, indexCrossTableEntries } from "./utils";
 import { CoordinatorClient } from "../../../coordinator/coordinatorClient";
 
+export async function getAllExplorations(
+    _payload: IExplorationService["getAllExplorations"]["payload"],
+): Promise<IExplorationService["getAllExplorations"]["response"]> {
+    const allExplorations = await CohortRxDatabase.exploration.findMany({});
+
+    return allExplorations.map((exploration) => createExploration(exploration, []));
+}
+
 export async function createNewExploration(
     payload: IExplorationService["createNewExploration"]["payload"],
 ): Promise<IExplorationService["createNewExploration"]["response"]> {

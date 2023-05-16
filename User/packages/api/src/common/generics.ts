@@ -21,21 +21,29 @@ type IImplementEndpoint<Service extends IService> = {
     };
 };
 
+export interface IEndpointError {
+    message: string;
+    details: any;
+    type: "error";
+}
+
 export type IBackendEndpoint<Service extends IService> = {
     [Key in keyof Service]: (
         payload: Service[Key]["payload"],
         response: Express.Response,
-    ) => Promise<Service[Key]["response"] | undefined>;
+    ) => Promise<Service[Key]["response"] | IEndpointError>;
 };
 
 export type IFrontendEndpoint<Service extends IService> = {
     [Key in keyof Service]: (
         payload: Service[Key]["payload"],
         cookie?: string,
-    ) => Promise<Service[Key]["response"] | { error: string }>;
+    ) => Promise<Service[Key]["response"] | IEndpointError>;
 };
 
-const STORE_TOKEN_KEY = "accountIdFromToken";
+export const isEndpointError = <T>(maybeError: T | IEndpointError): maybeError is IEndpointError => {
+    return (maybeError as IEndpointError)?.type === "error";
+};
 
 function implementBackend<Service extends IService>(endpoints: IImplementEndpoint<Service>) {
     return (app: Express.Express, backendImplementedEndpoints: IBackendEndpoint<Service>) => {
@@ -48,6 +56,10 @@ function implementBackend<Service extends IService>(endpoints: IImplementEndpoin
                     const responseData = await backendImplementedEndpoints[key](payload, response);
                     if (responseData === undefined) {
                         return;
+                    }
+
+                    if (isEndpointError(responseData)) {
+                        response.status(400).send(JSON.stringify(responseData));
                     }
 
                     response.status(200).send(JSON.stringify(responseData));
@@ -108,12 +120,6 @@ function implementFrontend<Service extends IService>(
                     body: JSON.stringify(payload),
                     method: method.toUpperCase(),
                 });
-            }
-
-            // This is a magic function thrown on the window on the frontend that lets us invalidate the token whenever any request comes back as a 403.
-            if (rawResponse.status === 403) {
-                window.onInvalidGame();
-                return undefined;
             }
 
             return (await rawResponse.json()) as Response;

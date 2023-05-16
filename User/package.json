@@ -2,7 +2,6 @@
     "name": "cohortrx-user",
     "version": "1.0.0",
     "description": "The node stack that supports the user-facing application",
-    "dependencies": {},
     "private": true,
     "devDependencies": {
         "@types/node": "^18.11.13",
@@ -52,5 +51,6 @@
     "bugs": {
         "url": "https://github.com/kadhirvelm/cohortrx/issues"
     },
-    "homepage": "https://github.com/kadhirvelm/cohortrx"
+    "homepage": "https://github.com/kadhirvelm/cohortrx",
+    "packageManager": "yarn@3.5.1"
 }

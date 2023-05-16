@@ -18,3 +18,5 @@ export interface IExploration extends Omit<Exploration, "metadata"> {
     };
     queryRequests: IQueryRequest[];
 }
+
+export type IBasicExploration = Omit<IExploration, "queryRequests">;

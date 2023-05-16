@@ -4,8 +4,8 @@
 
 import { configureStore, AnyAction, Dispatch as D, MiddlewareAPI, ThunkDispatch } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-
-export interface IStore {}
+import { ExplorationReducer } from "./reducers/exploration";
+import { ServicesReducer } from "./reducers/services";
 
 const LoggingMiddleware = <Reducers>() => [
     (store: MiddlewareAPI<ThunkDispatch<Reducers, null, AnyAction>, Reducers>) =>
@@ -27,12 +27,15 @@ const LoggingMiddleware = <Reducers>() => [
 ];
 
 export const Store = configureStore({
-    reducer: {},
+    reducer: {
+        exploration: ExplorationReducer,
+        services: ServicesReducer,
+    },
     middleware: LoggingMiddleware,
 });
 
 export type State = ReturnType<typeof Store.getState>;
 export type Dispatch = typeof Store.dispatch;
 
-export const usePoliticalCapitalDispatch: () => Dispatch = useDispatch;
-export const usePoliticalCapitalSelector: TypedUseSelectorHook<State> = useSelector;
+export const useCohortRxDispatch: () => Dispatch = useDispatch;
+export const useCohortRxSelector: TypedUseSelectorHook<State> = useSelector;

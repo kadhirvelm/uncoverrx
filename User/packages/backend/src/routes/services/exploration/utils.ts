@@ -2,12 +2,12 @@ import {
     IExploration,
     IExplorationRid,
     IQueryRequest,
-    IQueryRequestInput,
-    IQueryRequestResult,
     IQueryRequestRid,
+    LLMInput,
+    LLMResult,
 } from "@cohortrx-user/api";
 import { Exploration, ExplorationXQueryRequest, QueryRequest } from "@prisma/client";
-import { keyBy } from "lodash";
+import _ from "lodash";
 
 export function createExploration(exploration: Exploration, queryRequests: IQueryRequest[]): IExploration {
     return {
@@ -21,8 +21,8 @@ export function createQueryRequest(queryRequest: QueryRequest): IQueryRequest {
     return {
         ...queryRequest,
         query_request_rid: queryRequest.query_request_rid as IQueryRequestRid,
-        input: queryRequest.input as unknown as IQueryRequestInput,
-        result: queryRequest.result as unknown as IQueryRequestResult | undefined,
+        input: queryRequest.input as unknown as LLMInput,
+        result: queryRequest.result as unknown as LLMResult | undefined,
     } as IQueryRequest;
 }
 
@@ -47,7 +47,7 @@ export function assembleExplorations(
     queryRequests: QueryRequest[],
     indexedCrossTableEntries: IIndexedCrossTableEntries,
 ): IExploration[] {
-    const indexedQueryRequests = keyBy(queryRequests, (request) => request.query_request_rid);
+    const indexedQueryRequests = _.keyBy(queryRequests, (request) => request.query_request_rid);
 
     return explorations.map((exploration) => {
         const queryRequestsInExploration = indexedCrossTableEntries[exploration.exploration_rid];

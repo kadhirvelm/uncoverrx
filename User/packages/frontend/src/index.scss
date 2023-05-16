@@ -5,8 +5,7 @@
 @import "./styles/variables";
 
 body {
-
-    background: rgba($yellow, 0.08) !important; // HACK
+    background: $background-blue;
     color: $black;
     display: flex;
     font-family: "Roboto", sans-serif;
