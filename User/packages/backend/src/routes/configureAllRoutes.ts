@@ -4,25 +4,14 @@
 
 import Express from "express";
 import { configureFrontendRoutes } from "./configureFrontendRoutes";
-import { ExplorationServiceBackend } from "@cohortrx-user/api";
-import {
-    addNewRequest,
-    createNewExploration,
-    getAllExplorations,
-    getExplorations,
-} from "./services/exploration/exploration";
+import { ExplorationServiceBackend } from "./services/exploration/exploration";
 
 export function configureAllRoutes(app: Express.Express) {
     app.get("/status", (_req, res) => {
         res.status(200).send({ message: "success" });
     });
 
-    ExplorationServiceBackend(app, {
-        getAllExplorations,
-        createNewExploration,
-        getExplorations,
-        addNewRequest,
-    });
+    ExplorationServiceBackend(app);
 
     configureFrontendRoutes(app);
 }
