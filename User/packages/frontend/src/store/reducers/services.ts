@@ -1,4 +1,3 @@
-import { ExplorationServiceFrontend } from "@cohortrx-user/api";
 import { createSlice } from "@reduxjs/toolkit";
 import { EfficientExplorationService } from "../../services/efficientExplorationService";
 
@@ -7,7 +6,7 @@ interface ICohortRxServices {
 }
 
 const initialState: ICohortRxServices = {
-    explorationService: new EfficientExplorationService(ExplorationServiceFrontend),
+    explorationService: new EfficientExplorationService(),
 };
 
 const services = createSlice({

@@ -1,12 +1,13 @@
 import {
+    ExplorationServiceEndpoints,
     IBasicExploration,
     IEndpointError,
     IExploration,
     IExplorationRid,
     IExplorationService,
-    IFrontendEndpoint,
     LLMInput,
 } from "@cohortrx-user/api";
+import { IFrontendEndpoint, implementFrontend } from "./utils/implementRoutes";
 
 export class EfficientExplorationService implements IFrontendEndpoint<IExplorationService> {
     public getAllExplorations: (
@@ -29,7 +30,9 @@ export class EfficientExplorationService implements IFrontendEndpoint<IExplorati
         cookie?: string | undefined,
     ) => Promise<IEndpointError | IExploration>;
 
-    public constructor(delegate: IFrontendEndpoint<IExplorationService>) {
+    public constructor() {
+        const delegate = implementFrontend<IExplorationService>(ExplorationServiceEndpoints);
+
         this.getAllExplorations = delegate.getAllExplorations;
         this.createNewExploration = delegate.createNewExploration;
         this.getExplorations = delegate.getExplorations;

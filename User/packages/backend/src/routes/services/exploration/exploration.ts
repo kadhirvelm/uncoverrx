@@ -1,8 +1,9 @@
-import { Status, IExplorationService } from "@cohortrx-user/api";
+import { Status, IExplorationService, ExplorationServiceEndpoints } from "@cohortrx-user/api";
 import { CohortRxDatabase } from "../../../database/client";
 import { v4 } from "uuid";
 import { assembleExplorations, createExploration, indexCrossTableEntries } from "./utils";
 import { CoordinatorClient } from "../../../coordinator/coordinatorClient";
+import { implementBackend } from "../../utils/implementRoutes";
 
 export async function getAllExplorations(
     _payload: IExplorationService["getAllExplorations"]["payload"],
@@ -82,3 +83,10 @@ export async function addNewRequest(
 
     return (await getExplorations({ explorationRids: [payload.explorationRid] }))[0];
 }
+
+export const ExplorationServiceBackend = implementBackend(ExplorationServiceEndpoints, {
+    getAllExplorations,
+    createNewExploration,
+    getExplorations,
+    addNewRequest,
+});

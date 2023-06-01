@@ -1,4 +1,4 @@
-import { IService, implementEndpoints } from "../../common/generics";
+import { IImplementEndpoint, IService } from "../../common/generics";
 import { LLMInput } from "../../constants/generatedConstants";
 import { IBasicExploration, IExploration, IExplorationRid } from "./types";
 
@@ -27,7 +27,7 @@ export interface IExplorationService extends IService {
     };
 }
 
-const { backend, frontend } = implementEndpoints<IExplorationService>({
+export const ExplorationServiceEndpoints: IImplementEndpoint<IExplorationService> = {
     getAllExplorations: {
         method: "post",
         slug: "/exploration/get-all-exploration",
@@ -44,7 +44,4 @@ const { backend, frontend } = implementEndpoints<IExplorationService>({
         method: "post",
         slug: "/exploration/add-new-request",
     },
-});
-
-export const ExplorationServiceBackend = backend;
-export const ExplorationServiceFrontend = frontend;
+};
