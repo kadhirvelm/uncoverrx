@@ -6,7 +6,7 @@ module.exports = {
         extraFileExtensions: [".cjs"],
     },
 
-    plugins: ["@typescript-eslint", "jest", "prettier", "import", "react-hooks"],
+    plugins: ["@typescript-eslint", "jest", "prettier", "import", "react-hooks", "promise"],
 
     extends: [
         "airbnb-typescript",
@@ -16,6 +16,7 @@ module.exports = {
         "plugin:import/typescript",
         "plugin:jest/recommended",
         "plugin:prettier/recommended",
+        "plugin:promise/recommended",
     ],
 
     rules: {
@@ -67,7 +68,17 @@ module.exports = {
         "react-hooks/exhaustive-deps": 0,
         "@typescript-eslint/no-unsafe-argument": 0,
         "react/jsx-filename-extension": 0,
+        "import/no-unresolved": 0,
+        "import/extensions": ["error", "always"]
     },
+    "overrides": [
+        {
+            "files": ["./packages/frontend/**"],
+            "rules": {
+                "import/extensions": ["error", "never"]
+            }
+        }
+    ],
 
     settings: {
         "import/resolver": {
