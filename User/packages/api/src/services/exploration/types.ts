@@ -1,4 +1,4 @@
-import { Exploration, QueryRequest } from "@cohortrx-user/prisma-client";
+import { Exploration, QueryRequest } from "@uncoverrx-user/prisma-client";
 import { LLMInput, LLMResult } from "../../constants/generatedConstants";
 
 export type IQueryRequestRid = string & { _brand: "query-request-rid" };

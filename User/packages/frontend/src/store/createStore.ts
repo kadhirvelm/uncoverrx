@@ -37,5 +37,5 @@ export const Store = configureStore({
 export type State = ReturnType<typeof Store.getState>;
 export type Dispatch = typeof Store.dispatch;
 
-export const useCohortRxDispatch: () => Dispatch = useDispatch;
-export const useCohortRxSelector: TypedUseSelectorHook<State> = useSelector;
+export const useUncoverRxDispatch: () => Dispatch = useDispatch;
+export const useUncoverRxSelector: TypedUseSelectorHook<State> = useSelector;

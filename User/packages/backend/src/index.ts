@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2022 - KM
  */
-import { ORIGIN, PORT } from "@cohortrx-user/api";
+import { ORIGIN, PORT } from "@uncoverrx-user/api";
 import bodyParser from "body-parser";
 import compression from "compression";
 import express from "express";

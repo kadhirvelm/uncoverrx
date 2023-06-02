@@ -21,7 +21,7 @@ def start():
             "-Q",
             "chatgpt_process",
             "-n",
-            "worker@cohortrx-development",
+            "worker@uncoverrx-development",
         ],
         cwd="chatgpt",
     )

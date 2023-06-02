@@ -1,4 +1,4 @@
-# CohortRx
+# UncoverRx
 
 ## Summary
 
@@ -8,7 +8,7 @@ It integrates many data sources together in order to provide a unified solution 
 
 ## Background
 
-See the full exploration here: (CohortRx exploration)[https://docs.google.com/document/d/1iJTsa8id6nfXLzbZpv6i_pVlgPgVRVEbG-IZdvDP6nM/edit#]
+See the full exploration here: (UncoverRx exploration)[https://docs.google.com/document/d/1iJTsa8id6nfXLzbZpv6i_pVlgPgVRVEbG-IZdvDP6nM/edit#]
 
 ## How this works under the hood
 

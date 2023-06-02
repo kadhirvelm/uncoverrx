@@ -1,5 +1,5 @@
-import { Status, IExplorationService, ExplorationServiceEndpoints } from "@cohortrx-user/api";
-import { CohortRxDatabase } from "../../../database/client";
+import { Status, IExplorationService, ExplorationServiceEndpoints } from "@uncoverrx-user/api";
+import { UncoverRxDatabase } from "../../../database/client";
 import { v4 } from "uuid";
 import { assembleExplorations, createExploration, indexCrossTableEntries } from "./utils";
 import { CoordinatorClient } from "../../../coordinator/coordinatorClient";
@@ -8,7 +8,7 @@ import { implementBackend } from "../../utils/implementRoutes";
 export async function getAllExplorations(
     _payload: IExplorationService["getAllExplorations"]["payload"],
 ): Promise<IExplorationService["getAllExplorations"]["response"]> {
-    const allExplorations = await CohortRxDatabase.exploration.findMany({});
+    const allExplorations = await UncoverRxDatabase.exploration.findMany({});
 
     return allExplorations.map((exploration) => createExploration(exploration, []));
 }
@@ -16,7 +16,7 @@ export async function getAllExplorations(
 export async function createNewExploration(
     payload: IExplorationService["createNewExploration"]["payload"],
 ): Promise<IExplorationService["createNewExploration"]["response"]> {
-    const newExploration = await CohortRxDatabase.exploration.create({
+    const newExploration = await UncoverRxDatabase.exploration.create({
         data: {
             exploration_rid: v4(),
             metadata: {
@@ -31,7 +31,7 @@ export async function createNewExploration(
 export async function getExplorations(
     payload: IExplorationService["getExplorations"]["payload"],
 ): Promise<IExplorationService["getExplorations"]["response"]> {
-    const allExplorations = await CohortRxDatabase.exploration.findMany({
+    const allExplorations = await UncoverRxDatabase.exploration.findMany({
         where: {
             exploration_rid: {
                 in: payload.explorationRids,
@@ -39,7 +39,7 @@ export async function getExplorations(
         },
     });
 
-    const crossTableEntries = await CohortRxDatabase.explorationXQueryRequest.findMany({
+    const crossTableEntries = await UncoverRxDatabase.explorationXQueryRequest.findMany({
         where: {
             exploration_rid: {
                 in: allExplorations.map((exploration) => exploration.exploration_rid),
@@ -47,7 +47,7 @@ export async function getExplorations(
         },
     });
 
-    const allQueryRequests = await CohortRxDatabase.queryRequest.findMany({
+    const allQueryRequests = await UncoverRxDatabase.queryRequest.findMany({
         where: {
             query_request_rid: {
                 in: crossTableEntries.map((entry) => entry.query_request_rid),
@@ -66,7 +66,7 @@ export async function addNewRequest(
 
     await Promise.all([
         // TODO: find a way to coordinate the "status" value with the python library
-        CohortRxDatabase.queryRequest.create({
+        UncoverRxDatabase.queryRequest.create({
             data: {
                 query_request_rid,
                 status: Status.Pending.toString(),
@@ -74,7 +74,7 @@ export async function addNewRequest(
                 request_date: new Date(),
             },
         }),
-        CohortRxDatabase.explorationXQueryRequest.create({
+        UncoverRxDatabase.explorationXQueryRequest.create({
             data: { position: payload.position.toString(), exploration_rid: payload.explorationRid, query_request_rid },
         }),
     ]);

@@ -1,3 +1,3 @@
-import { PrismaClient } from "@cohortrx-user/prisma-client";
+import { PrismaClient } from "@uncoverrx-user/prisma-client";
 
-export const CohortRxDatabase = new PrismaClient();
+export const UncoverRxDatabase = new PrismaClient();

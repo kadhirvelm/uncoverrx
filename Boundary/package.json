@@ -1,5 +1,5 @@
 {
-    "name": "cohortrx-user",
+    "name": "uncoverrx-user",
     "version": "1.0.0",
     "description": "The node stack that supports the user-facing application",
     "dependencies": {
@@ -17,12 +17,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/kadhirvelm/cohortrx"
+        "url": "https://github.com/kadhirvelm/uncoverrx"
     },
     "author": "Kadhirvel Manickam",
     "bugs": {
-        "url": "https://github.com/kadhirvelm/cohortrx/issues"
+        "url": "https://github.com/kadhirvelm/uncoverrx/issues"
     },
     "type": "module",
-    "homepage": "https://github.com/kadhirvelm/cohortrx"
+    "homepage": "https://github.com/kadhirvelm/uncoverrx"
 }

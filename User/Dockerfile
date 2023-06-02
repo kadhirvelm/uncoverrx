@@ -1,6 +1,6 @@
 FROM node:lts
 
-WORKDIR /cohortrx
+WORKDIR /uncoverrx
 
 RUN yarn set version stable
 

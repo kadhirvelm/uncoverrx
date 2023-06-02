@@ -1,4 +1,4 @@
-import { IEndpointError, isEndpointError } from "@cohortrx-user/api";
+import { IEndpointError, isEndpointError } from "@uncoverrx-user/api";
 import { enqueueSnackbar } from "notistack";
 
 export function checkError<T>(maybeError: T | IEndpointError) {

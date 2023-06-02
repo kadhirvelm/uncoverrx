@@ -3,7 +3,7 @@
  */
 
 import * as React from "react";
-import styles from "./CohortRx.module.scss";
+import styles from "./UncoverRx.module.scss";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { ViewExploration } from "./exploration/ViewExploration";
 import { AllExplorations } from "./exploration/AllExplorations";
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     },
 ]);
 
-export const CohortRx: React.FC<{}> = () => {
+export const UncoverRx: React.FC<{}> = () => {
     return (
         <div className={styles.rootContainer}>
             <RouterProvider router={router} />

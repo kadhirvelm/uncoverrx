@@ -6,7 +6,7 @@ import {
     IExplorationRid,
     IExplorationService,
     LLMInput,
-} from "@cohortrx-user/api";
+} from "@uncoverrx-user/api";
 import { IFrontendEndpoint, implementFrontend } from "./utils/implementRoutes";
 
 export class EfficientExplorationService implements IFrontendEndpoint<IExplorationService> {

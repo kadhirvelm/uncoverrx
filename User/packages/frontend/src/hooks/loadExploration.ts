@@ -1,10 +1,10 @@
 import * as React from "react";
-import { useCohortRxSelector } from "../store/createStore";
-import { IBasicExploration } from "@cohortrx-user/api";
+import { useUncoverRxSelector } from "../store/createStore";
+import { IBasicExploration } from "@uncoverrx-user/api";
 import { checkError } from "../utils/checkError";
 
 export function useLoadExploration() {
-    const explorationService = useCohortRxSelector((s) => s.services.explorationService);
+    const explorationService = useUncoverRxSelector((s) => s.services.explorationService);
 
     const [isLoading, setIsLoading] = React.useState(false);
     const [allExplorations, setAllExplorations] = React.useState<IBasicExploration[] | undefined>(undefined);

@@ -2,7 +2,7 @@
  * Copyright (c) 2022 - KM
  */
 
-import { getBackendUrlFromFrontend, IEndpointError, IImplementEndpoint, IService } from "@cohortrx-user/api";
+import { getBackendUrlFromFrontend, IEndpointError, IImplementEndpoint, IService } from "@uncoverrx-user/api";
 
 export type IFrontendEndpoint<Service extends IService> = {
     [Key in keyof Service]: (

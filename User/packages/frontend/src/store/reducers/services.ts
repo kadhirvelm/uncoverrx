@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { EfficientExplorationService } from "../../services/efficientExplorationService";
 
-interface ICohortRxServices {
+interface IUncoverRxServices {
     explorationService: EfficientExplorationService;
 }
 
-const initialState: ICohortRxServices = {
+const initialState: IUncoverRxServices = {
     explorationService: new EfficientExplorationService(),
 };
 
