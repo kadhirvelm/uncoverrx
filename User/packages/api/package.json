@@ -1,13 +1,13 @@
 {
-    "name": "@cohortrx-user/api",
+    "name": "@uncoverrx-user/api",
     "version": "1.0.0",
     "description": "The API",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
-    "repository": "https://github.com/kadhirvelm/cohortrx",
+    "repository": "https://github.com/kadhirvelm/uncoverrx",
     "type": "module",
     "dependencies": {
-        "@cohortrx-user/prisma-client": "1.0.0",
+        "@uncoverrx-user/prisma-client": "1.0.0",
         "lodash": "^4.17.21"
     },
     "scripts": {

@@ -14,7 +14,7 @@ INSTALLED_APPS = ["dummy"]
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "cohortrx",
+        "NAME": "uncoverrx",
         "USER": "postgres",
         "PASSWORD": "admin",
         "HOST": "host.docker.internal",

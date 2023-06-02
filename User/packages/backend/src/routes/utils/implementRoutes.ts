@@ -2,7 +2,7 @@
  * Copyright (c) 2022 - KM
  */
 
-import { IEndpointError, IImplementEndpoint, isEndpointError, IService } from "@cohortrx-user/api";
+import { IEndpointError, IImplementEndpoint, isEndpointError, IService } from "@uncoverrx-user/api";
 import Express from "express";
 
 export type IBackendEndpoint<Service extends IService> = {

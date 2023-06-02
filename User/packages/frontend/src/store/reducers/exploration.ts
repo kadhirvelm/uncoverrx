@@ -1,4 +1,4 @@
-import { IBasicExploration } from "@cohortrx-user/api";
+import { IBasicExploration } from "@uncoverrx-user/api";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IExplorationState {

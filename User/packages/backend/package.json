@@ -1,14 +1,14 @@
 {
-    "name": "@cohortrx-user/backend",
+    "name": "@uncoverrx-user/backend",
     "version": "1.0.0",
     "description": "The backend",
     "main": "dist/index.js",
-    "repository": "https://github.com/kadhirvelm/cohortrx",
+    "repository": "https://github.com/kadhirvelm/uncoverrx",
     "type": "module",
     "private": true,
     "dependencies": {
-        "@cohortrx-user/api": "1.0.0",
-        "@cohortrx-user/prisma-client": "1.0.0",
+        "@uncoverrx-user/api": "1.0.0",
+        "@uncoverrx-user/prisma-client": "1.0.0",
         "@yarnpkg/pnpify": "^4.0.0-rc.43",
         "body-parser": "^1.20.2",
         "compression": "^1.7.4",

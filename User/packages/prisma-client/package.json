@@ -1,11 +1,11 @@
 {
-    "name": "@cohortrx-user/prisma-client",
+    "name": "@uncoverrx-user/prisma-client",
     "version": "1.0.0",
     "description": "The prisma client",
     "main": "output/index.js",
     "typings": "output/index.d.ts",
     "types": "output/index.d.ts",
-    "repository": "https://github.com/kadhirvelm/cohortrx",
+    "repository": "https://github.com/kadhirvelm/uncoverrx",
     "type": "module",
     "scripts": {
         "update": "yarn pnpify prisma db pull && yarn pnpify prisma generate"

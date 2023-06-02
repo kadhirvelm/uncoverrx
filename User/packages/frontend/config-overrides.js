@@ -39,7 +39,7 @@ module.exports = override(
         }
 
         loader.use.splice(1, 0, {
-            loader: require.resolve("@cohortrx-user/scss-modules"),
+            loader: require.resolve("@uncoverrx-user/scss-modules"),
         });
     }),
     addEnvVariablesToDefinePlugin,

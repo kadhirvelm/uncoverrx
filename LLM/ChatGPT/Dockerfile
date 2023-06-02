@@ -2,12 +2,12 @@ FROM python:3.11
 
 RUN pip install poetry
 
-WORKDIR /cohortrx
+WORKDIR /uncoverrx
 
 COPY ./LLM/Library ./Library
 COPY ./LLM/ChatGPT ./ChatGPT
 
-WORKDIR /cohortrx/ChatGPT
+WORKDIR /uncoverrx/ChatGPT
 
 RUN poetry install
 

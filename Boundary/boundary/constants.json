@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/CohortRx",
+    "$ref": "#/definitions/UncoverRx",
     "definitions": {
-        "CohortRx": {
+        "UncoverRx": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -21,7 +21,7 @@
                 "llm_input",
                 "llm_result"
             ],
-            "title": "CohortRx"
+            "title": "UncoverRx"
         },
         "Status": {
             "type": "string",
