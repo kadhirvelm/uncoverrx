@@ -2,22 +2,37 @@
  * Copyright (c) 2022 - KM
  */
 
-$green: #4caf50;
-$blue: #03a9f4;
-$orange: #ff5722;
-$red: #f44336;
+$light-red: #ffcdd2;
+$red: #ef5350;
+$dark-red: #d32f2f;
 
-$yellow: #ffeb3b;
-$purple: #9c27b0;
-$teal: #4dd0e1;
-$brown: #795548;
+$light-purple: #e1bee7;
+$purple: #ab47bc;
+$dark-purple: #7b1fa2;
 
-$light-gray: #eee;
-$gray: #9e9e9e;
-$dark-gray: #424242;
-$black: #1b2631;
+$light-blue: #b3e5fc;
+$blue: #29b6f6;
+$dark-blue: #0288d1;
 
-$background-blue: #EBF5FB;
+$light-green: #c8e6c9;
+$green: #66bb6a;
+$dark-green: #388e3c;
+
+$light-yellow: #fff9c4;
+$yellow: #ffee58;
+$dark-yellow: #fbc02d;
+
+$light-gray: #f5f5f5;
+$gray: #bdbdbd;
+$dark-gray: #616161;
+
+$white: #fcfff1;
+$black: #263238;
+
+$background: $gray;
+
+$font-color: $black;
+$muted-font-color: $gray;
 
 $transition: cubic-bezier(0, 0.26, 0, 0.96);
 

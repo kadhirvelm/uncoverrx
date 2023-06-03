@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
 import { IEndpointError, isEndpointError } from "@uncoverrx-user/api";
 import { enqueueSnackbar } from "notistack";
 

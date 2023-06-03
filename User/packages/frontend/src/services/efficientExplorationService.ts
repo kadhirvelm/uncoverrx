@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
 import {
     ExplorationServiceEndpoints,
     IBasicExploration,

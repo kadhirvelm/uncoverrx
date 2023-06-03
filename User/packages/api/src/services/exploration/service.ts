@@ -1,5 +1,8 @@
-import { IImplementEndpoint, IService } from "common/generics.js";
-import { LLMInput } from "constants/generatedConstants.js";
+/**
+ * Copyright (c) 2023 - KM
+ */
+import { IImplementEndpoint, IService } from "../../common/generics.js";
+import { LLMInput } from "../../constants/generatedConstants.js";
 import { IBasicExploration, IExploration, IExplorationRid } from "./types.js";
 
 export interface IExplorationService extends IService {

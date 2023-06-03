@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
 import { Exploration, QueryRequest } from "@uncoverrx-user/prisma-client";
 import { LLMInput, LLMResult } from "../../constants/generatedConstants.js";
 

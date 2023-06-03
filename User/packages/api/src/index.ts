@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 - KM
+ * Copyright (c) 2023 - KM
  */
 
 export * from "./common/generics.js";

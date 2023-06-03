@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
 import { IBasicExploration } from "@uncoverrx-user/api";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 - KM
+ * Copyright (c) 2023 - KM
  */
 
 import { IEndpointError, IImplementEndpoint, isEndpointError, IService } from "@uncoverrx-user/api";
