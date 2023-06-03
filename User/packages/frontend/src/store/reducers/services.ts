@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { EfficientExplorationService } from "../../services/efficientExplorationService";
+import { EfficientExplorationService } from "services/efficientExplorationService";
 
 interface IUncoverRxServices {
     explorationService: EfficientExplorationService;

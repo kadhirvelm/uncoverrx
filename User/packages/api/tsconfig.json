@@ -8,7 +8,9 @@
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": "./src",
   },
+  "include": ["./src"],
   "exclude": [
     "./dist/*",
     "./node_modules/*"

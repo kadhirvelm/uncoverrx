@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useLoadExploration } from "../../hooks/loadExploration";
+import { useLoadExploration } from "hooks/loadExploration";
 import { CircularProgress } from "@mui/material";
 
 export const AllExplorations: React.FC<{}> = () => {

@@ -1,9 +1,9 @@
 import { Status, IExplorationService, ExplorationServiceEndpoints } from "@uncoverrx-user/api";
-import { UncoverRxDatabase } from "../../../database/client.js";
+import { UncoverRxDatabase } from "database/client.js";
 import { v4 } from "uuid";
 import { assembleExplorations, createExploration, indexCrossTableEntries } from "./utils.js";
-import { CoordinatorClient } from "../../../coordinator/coordinatorClient.js";
-import { implementBackend } from "../../utils/implementRoutes.js";
+import { CoordinatorClient } from "coordinator/coordinatorClient.js";
+import { implementBackend } from "routes/utils/implementRoutes.js";
 
 export async function getAllExplorations(
     _payload: IExplorationService["getAllExplorations"]["payload"],

@@ -5,11 +5,15 @@ import {
     IExploration,
     IExplorationRid,
     IExplorationService,
+    IService,
     LLMInput,
 } from "@uncoverrx-user/api";
 import { IFrontendEndpoint, implementFrontend } from "./utils/implementRoutes";
 
-export class EfficientExplorationService implements IFrontendEndpoint<IExplorationService> {
+// Not really sure why the extension is getting lost across the package boundary
+interface IForceType extends IExplorationService, IService {}
+
+export class EfficientExplorationService implements IFrontendEndpoint<IForceType> {
     public getAllExplorations: (
         payload: {},
         cookie?: string | undefined,
@@ -31,7 +35,7 @@ export class EfficientExplorationService implements IFrontendEndpoint<IExplorati
     ) => Promise<IEndpointError | IExploration>;
 
     public constructor() {
-        const delegate = implementFrontend<IExplorationService>(ExplorationServiceEndpoints);
+        const delegate = implementFrontend<IForceType>(ExplorationServiceEndpoints);
 
         this.getAllExplorations = delegate.getAllExplorations;
         this.createNewExploration = delegate.createNewExploration;

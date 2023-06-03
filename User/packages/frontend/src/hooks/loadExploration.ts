@@ -1,7 +1,7 @@
 import * as React from "react";
-import { useUncoverRxSelector } from "../store/createStore";
+import { useUncoverRxSelector } from "store/createStore";
 import { IBasicExploration } from "@uncoverrx-user/api";
-import { checkError } from "../utils/checkError";
+import { checkError } from "utils/checkError";
 
 export function useLoadExploration() {
     const explorationService = useUncoverRxSelector((s) => s.services.explorationService);
