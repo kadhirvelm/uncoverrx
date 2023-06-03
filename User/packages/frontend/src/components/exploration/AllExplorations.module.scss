@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     min-height: 500px;
-    width: 750px;
+    width: 500px;
 }
 
 .cardHeader {
@@ -45,4 +45,23 @@
     flex: 1;
     flex-direction: column;
     padding: 15px 20px;
+}
+
+.explorationsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px 1px 0;
+}
+
+.singleExploration {
+    border-radius: 3px;
+    box-shadow: $box-shadow-border;
+    cursor: pointer;
+    display: flex;
+    padding: 15px;
+
+    &:hover {
+        background: $hover-color;
+    }
 }

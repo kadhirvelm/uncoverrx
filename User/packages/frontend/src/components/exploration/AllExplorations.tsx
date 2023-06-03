@@ -14,6 +14,7 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
+import { IBasicExploration } from "@uncoverrx-user/api";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoadExploration } from "../../hooks/loadExploration";
@@ -55,6 +56,7 @@ const NewExplorationDialog: React.FC<{ isOpen: boolean; onClose: () => void }> =
                     thoughts.
                 </Typography>
                 <TextField
+                    autoFocus
                     error={newExplorationName === ""}
                     fullWidth
                     label="Exploration title"
@@ -80,7 +82,10 @@ const NewExplorationDialog: React.FC<{ isOpen: boolean; onClose: () => void }> =
 };
 
 export const AllExplorations: React.FC<{}> = () => {
+    const navigate = useNavigate();
+
     const [isNewExplorationOpen, setIsNewExplorationOpen] = React.useState(false);
+    const [searchText, setSearchText] = React.useState("");
 
     const { isLoading, allExplorations } = useLoadExploration();
 
@@ -99,6 +104,11 @@ export const AllExplorations: React.FC<{}> = () => {
         );
     };
 
+    const setSearchTextEvent = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+        setSearchText(event.currentTarget.value);
+
+    const onClickExploration = (exploration: IBasicExploration) => () => navigate(viewExploration(exploration));
+
     const maybeRenderExplorations = () => {
         if (allExplorations === undefined || allExplorations.length === 0) {
             return <div className={styles.noExplorationsFound}>No explorations found.</div>;
@@ -106,20 +116,29 @@ export const AllExplorations: React.FC<{}> = () => {
 
         return (
             <DynamicScrollContainer>
-                <div>
-                    <TextField
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <SearchOutlined />
-                                </InputAdornment>
-                            ),
-                        }}
-                    />
-                </div>
-                <div>
+                <TextField
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchOutlined />
+                            </InputAdornment>
+                        ),
+                    }}
+                    autoFocus
+                    fullWidth
+                    onChange={setSearchTextEvent}
+                    placeholder="Search explorations…"
+                    value={searchText}
+                />
+                <div className={styles.explorationsContainer}>
                     {allExplorations.map((exploration) => (
-                        <div key={exploration.exploration_rid}>{exploration.metadata.name}</div>
+                        <div
+                            className={styles.singleExploration}
+                            key={exploration.exploration_rid}
+                            onClick={onClickExploration(exploration)}
+                        >
+                            {exploration.metadata.name}
+                        </div>
                     ))}
                 </div>
             </DynamicScrollContainer>
