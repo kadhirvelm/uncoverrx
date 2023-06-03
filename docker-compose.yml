@@ -65,6 +65,9 @@ services:
   uncoverrx-user:
     image: uncoverrx-user:latest
     container_name: user
+    environment:
+      - ORIGIN=0.0.0.0
+      - PRISMA_POSTGRES_HOST=postgresql://postgres:admin@host.docker.internal:5432/uncoverrx?schema=public
     volumes:
       - ./User:/uncoverrx:rw
     command:

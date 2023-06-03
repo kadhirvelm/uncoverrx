@@ -229,13 +229,22 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/kadhirvelmanickam/Desktop/Projects/uncoverrx/User/packages/prisma-client/output",
+      "value": "/uncoverrx/packages/prisma-client/output",
       "fromEnvVar": null
     },
     "config": {
       "engineType": "library"
     },
-    "binaryTargets": [],
+    "binaryTargets": [
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-1.1.x"
+      },
+      {
+        "fromEnvVar": null,
+        "value": "debian-openssl-1.1.x"
+      }
+    ],
     "previewFeatures": [],
     "isCustomOutput": true
   },
@@ -284,7 +293,7 @@ const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
-path.join(__dirname, "libquery_engine-darwin.dylib.node");
-path.join(process.cwd(), "output/libquery_engine-darwin.dylib.node")
+path.join(__dirname, "libquery_engine-debian-openssl-1.1.x.so.node");
+path.join(process.cwd(), "output/libquery_engine-debian-openssl-1.1.x.so.node")
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "output/schema.prisma")
