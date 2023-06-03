@@ -6,7 +6,7 @@ module.exports = {
         extraFileExtensions: [".cjs"],
     },
 
-    plugins: ["@typescript-eslint", "jest", "prettier", "import", "react-hooks", "promise", "header"],
+    plugins: ["@typescript-eslint", "jest", "prettier", "import", "react", "react-hooks", "promise", "header"],
 
     extends: [
         "airbnb-typescript",
@@ -16,7 +16,7 @@ module.exports = {
         "plugin:import/typescript",
         "plugin:jest/recommended",
         "plugin:prettier/recommended",
-        "plugin:promise/recommended",
+        "plugin:promise/recommended"
     ],
 
     rules: {
@@ -70,7 +70,8 @@ module.exports = {
         "react/jsx-filename-extension": 0,
         "import/no-unresolved": 0,
         "import/extensions": ["error", "always"],
-        "header/header": ["error", "block", "*\n * Copyright (c) 2023 - KM\n "]
+        "header/header": ["error", "block", "*\n * Copyright (c) 2023 - KM\n "],
+        "react/jsx-sort-props": ["warn"]
     },
     overrides: [
         {

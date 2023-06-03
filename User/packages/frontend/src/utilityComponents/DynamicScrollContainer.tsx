@@ -21,11 +21,19 @@ export const DynamicScrollContainer: React.FC<React.PropsWithChildren> = ({ chil
         return <div className={styles.childContainer}>{children}</div>;
     };
 
+    const maybeGetHeight = () => {
+        if (parentRef == null || !hasMounted) {
+            return undefined;
+        }
+
+        return `${parentRef.current?.clientHeight}px`
+    }
+
     return (
         <div
             className={styles.parentContainer}
             ref={parentRef}
-            style={{ maxHeight: `${parentRef.current?.clientHeight ?? 0}px` }}
+            style={{ maxHeight: maybeGetHeight() }}
         >
             {maybeRenderChildren()}
         </div>

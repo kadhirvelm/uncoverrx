@@ -6,21 +6,22 @@ import * as React from "react";
 import styles from "./UncoverRx.module.scss";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { ViewExploration } from "./exploration/ViewExploration";
-import { AllExplorations } from "./exploration/AllExplorations";
 import { SnackbarProvider } from "notistack";
+import { AllExplorationsPath, ViewExplorationPath } from "../routes/allRoutes";
+import { AllExplorations } from "./exploration/AllExplorations";
 
 const router = createBrowserRouter([
     {
-        path: "exploration/all",
+        path: AllExplorationsPath,
         element: <AllExplorations />,
     },
     {
-        path: "exploration/:explorationRid",
+        path: ViewExplorationPath,
         element: <ViewExploration />,
     },
     {
         path: "*",
-        element: <Navigate to="/exploration/all" replace={true} />,
+        element: <Navigate replace to={AllExplorationsPath} />,
     },
 ]);
 
