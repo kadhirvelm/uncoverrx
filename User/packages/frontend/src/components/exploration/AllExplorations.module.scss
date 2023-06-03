@@ -1,0 +1,67 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
+
+@import "styles/variables";
+
+.mainBody {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    width: 500px;
+}
+
+.cardHeader {
+    box-shadow: 0 1px $box-shadow-color;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.loaderContainer {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.noExplorationsFound {
+    align-items: center;
+    color: $muted-font-color;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.explorations {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 15px 20px;
+}
+
+.explorationsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px 1px 0;
+}
+
+.singleExploration {
+    border-radius: 3px;
+    box-shadow: $box-shadow-border;
+    cursor: pointer;
+    display: flex;
+    padding: 15px;
+
+    &:hover {
+        background: $hover-color;
+    }
+}

@@ -1,5 +1,8 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
 import { Exploration, QueryRequest } from "@uncoverrx-user/prisma-client";
-import { LLMInput, LLMResult } from "../../constants/generatedConstants";
+import { LLMInput, LLMResult } from "../../constants/generatedConstants.js";
 
 export type IQueryRequestRid = string & { _brand: "query-request-rid" };
 

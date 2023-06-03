@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
 import { createSlice } from "@reduxjs/toolkit";
 import { EfficientExplorationService } from "../../services/efficientExplorationService";
 

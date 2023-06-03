@@ -1,13 +1,13 @@
 /**
- * Copyright (c) 2022 - KM
+ * Copyright (c) 2023 - KM
  */
 import { ORIGIN, PORT } from "@uncoverrx-user/api";
 import bodyParser from "body-parser";
 import compression from "compression";
 import express from "express";
 import { createServer } from "http";
-import { configureAllRoutes } from "./routes/configureAllRoutes";
-import { configureSecurity } from "./security/configureSecurity";
+import { configureAllRoutes } from "./routes/configureAllRoutes.js";
+import { configureSecurity } from "./security/configureSecurity.js";
 
 function setupServer() {
     const app = express();

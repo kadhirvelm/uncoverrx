@@ -1,9 +1,13 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
+
 import { Status, IExplorationService, ExplorationServiceEndpoints } from "@uncoverrx-user/api";
-import { UncoverRxDatabase } from "../../../database/client";
+import { UncoverRxDatabase } from "../../../database/client.js";
 import { v4 } from "uuid";
-import { assembleExplorations, createExploration, indexCrossTableEntries } from "./utils";
-import { CoordinatorClient } from "../../../coordinator/coordinatorClient";
-import { implementBackend } from "../../utils/implementRoutes";
+import { assembleExplorations, createExploration, indexCrossTableEntries } from "./utils.js";
+import { CoordinatorClient } from "../../../coordinator/coordinatorClient.js";
+import { implementBackend } from "../../utils/implementRoutes.js";
 
 export async function getAllExplorations(
     _payload: IExplorationService["getAllExplorations"]["payload"],

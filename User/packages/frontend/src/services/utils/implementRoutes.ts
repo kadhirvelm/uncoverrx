@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 - KM
+ * Copyright (c) 2023 - KM
  */
 
 import { getBackendUrlFromFrontend, IEndpointError, IImplementEndpoint, IService } from "@uncoverrx-user/api";

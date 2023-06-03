@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2022 - KM
+ * Copyright (c) 2023 - KM
  */
 
 export function getExportLocalsObject(src: string): string {
@@ -13,5 +13,5 @@ export function getExportLocalsObject(src: string): string {
         throw new Error("Could not identify a complete object from the export locals string.");
     }
 
-    return exportObject[0];
+    return exportObject[0].replaceAll("`", '"');
 }

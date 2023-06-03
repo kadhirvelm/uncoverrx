@@ -5,11 +5,11 @@
 @import "./styles/variables";
 
 body {
-    background: $background-blue;
+    background: $background;
     color: $black;
     display: flex;
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
+    font-size: $font-size;
     height: 100vh;
     margin: 0;
     overflow-y: auto;

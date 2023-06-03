@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
 import * as React from "react";
 import { useUncoverRxSelector } from "../store/createStore";
 import { IBasicExploration } from "@uncoverrx-user/api";

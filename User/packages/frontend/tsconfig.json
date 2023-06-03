@@ -5,8 +5,8 @@
         "outDir": "./dist",
         "rootDirs": [
             "src",
-            "typings",
-            "compiled_types"
+            "compiled_types",
+            "typings"
         ],
         "declaration": false,
         "declarationMap": false,
@@ -33,7 +33,7 @@
     ],
     "include": [
         "src",
-        "typings",
-        "compiled_types"
+        "compiled_types",
+        "typings"
     ]
 }

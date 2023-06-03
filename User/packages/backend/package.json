@@ -50,6 +50,7 @@
         "@types/sequelize": "^4.28.15",
         "@types/uuid": "^9.0.1",
         "@types/validator": "^13.7.17",
+        "eslint": "8.29.0",
         "jest": "^29.5.0",
         "nodemon": "^2.0.22",
         "prisma": "4.14.0",
