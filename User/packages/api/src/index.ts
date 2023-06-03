@@ -2,10 +2,10 @@
  * Copyright (c) 2022 - KM
  */
 
-export * from "./common/generics";
+export * from "./common/generics.js";
 
-export * from "./constants/generatedConstants";
+export * from "./constants/generatedConstants.js";
 
-export * from "./services/exploration";
+export * from "./services/exploration/index.js";
 
-export * from "./constants";
+export * from "./constants.js";
