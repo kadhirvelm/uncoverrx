@@ -12,6 +12,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@adobe/css-tools@npm:^4.3.0-beta.2":
+  version: 4.3.0-beta.2
+  resolution: "@adobe/css-tools@npm:4.3.0-beta.2"
+  checksum: e081dac09b49d854260a96d33afcbf58a9239bc9551f156f50837b75ff1ec02f69170bd91979786b14a4bbd33c7d195cdb20b4b8a1afee6d61cdf5946497bc14
+  languageName: node
+  linkType: hard
+
 "@alloc/quick-lru@npm:^5.2.0":
   version: 5.2.0
   resolution: "@alloc/quick-lru@npm:5.2.0"
@@ -3740,6 +3747,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:4.14.0":
+  version: 4.14.0
+  resolution: "@prisma/client@npm:4.14.0"
+  dependencies:
+    "@prisma/engines-version": 4.14.0-67.d9a4c5988f480fa576d43970d5a23641aa77bc9c
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: d0254f0858653d6ae3366704af0296fc739a06917c8d96b4dade293e2195b9a0633782714339d7d8813bc669aa92105151632b395d5c6b1fa226ca685aeee47d
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:4.14.0-67.d9a4c5988f480fa576d43970d5a23641aa77bc9c":
+  version: 4.14.0-67.d9a4c5988f480fa576d43970d5a23641aa77bc9c
+  resolution: "@prisma/engines-version@npm:4.14.0-67.d9a4c5988f480fa576d43970d5a23641aa77bc9c"
+  checksum: 0df2c9e7434ced708a202cb572e5cf433aae55332819700edb394b7d9c29742a6d2fd65abb778e80f9b1cc1f90daae5e331f4acd070bed395982856ff5ceccee
+  languageName: node
+  linkType: hard
+
 "@prisma/engines@npm:4.14.0":
   version: 4.14.0
   resolution: "@prisma/engines@npm:4.14.0"
@@ -5161,6 +5189,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@uncoverrx-user/prisma-client@workspace:packages/prisma-client"
   dependencies:
+    "@prisma/client": 4.14.0
     "@yarnpkg/pnpify": ^4.0.0-rc.43
     prisma: 4.14.0
     tslib: ^2.5.0
@@ -20113,6 +20142,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "uncoverrx-user@workspace:."
   dependencies:
+    "@adobe/css-tools": ^4.3.0-beta.2
     "@lerna/child-process": ^6.6.2
     "@types/node": ^18.16.12
     "@types/semver": ^7.5.0
