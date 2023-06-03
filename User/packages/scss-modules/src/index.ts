@@ -36,7 +36,7 @@ export default async function (this: webpack.LoaderContext<{ namespace: string }
             );
             writeFileSync(`${typingsFilePath.path}/${typingsFilePath.file}.d.ts.map`, generatedSourceMap.toString());
 
-            typingsFile = `${typingsFile}\n\n/*# sourceMappingURL=${typingsFilePath.file}.map*/`;
+            typingsFile = `${typingsFile}\n\n//# sourceMappingURL=${typingsFilePath.file}.map`;
         }
 
         const finalTypingsFile = `${typingsFilePath.path}/${typingsFilePath.file}.d.ts`;

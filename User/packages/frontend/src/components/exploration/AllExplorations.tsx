@@ -3,7 +3,9 @@
  */
 import * as React from "react";
 import { useLoadExploration } from "../../hooks/loadExploration";
-import { Card, CircularProgress, Input } from "@mui/material";
+import { Button, Card, CircularProgress, Input } from "@mui/material";
+import styles from "./AllExplorations.module.scss";
+import { DynamicScrollContainer } from "../../utilityComponents/DynamicScrollContainer";
 
 export const AllExplorations: React.FC<{}> = () => {
     const { isLoading, allExplorations } = useLoadExploration();
@@ -22,11 +24,11 @@ export const AllExplorations: React.FC<{}> = () => {
 
     const maybeRenderExplorations = () => {
         if (allExplorations === undefined || allExplorations.length === 0) {
-            return <div>No explorations found.</div>;
+            return <div className={styles.noExplorationsFound}>No explorations found.</div>;
         }
 
         return (
-            <div>
+            <DynamicScrollContainer>
                 <div>
                     <Input />
                 </div>
@@ -35,16 +37,21 @@ export const AllExplorations: React.FC<{}> = () => {
                         <div key={exploration.exploration_rid}>{exploration.metadata.name}</div>
                     ))}
                 </div>
-            </div>
+            </DynamicScrollContainer>
         );
     };
 
     return (
-        <div>
-            <Card>
-                <div>
-                    <div>All explorations</div>
-                    {maybeRenderLoading()}
+        <div className={styles.mainBody}>
+            <Card className={styles.cardContainer}>
+                <div className={styles.cardHeader}>
+                    <div className={styles.loaderContainer}>
+                        <div>All explorations</div>
+                        {maybeRenderLoading()}
+                    </div>
+                    <div>
+                        <Button>New exploration</Button>
+                    </div>
                 </div>
                 {maybeRenderExplorations()}
             </Card>

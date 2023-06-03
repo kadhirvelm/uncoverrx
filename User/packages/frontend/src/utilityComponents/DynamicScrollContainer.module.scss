@@ -1,0 +1,16 @@
+/**
+ * Copyright (c) 2023 - KM
+ */
+
+.parentContainer {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.childContainer {
+    display: flex;
+    flex: 1;
+    padding-bottom: 50px;
+}

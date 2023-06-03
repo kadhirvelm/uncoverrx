@@ -5,8 +5,8 @@
         "outDir": "./dist",
         "rootDirs": [
             "src",
-            "typings",
-            "compiled_types"
+            "compiled_types",
+            "typings"
         ],
         "declaration": false,
         "declarationMap": false,
@@ -16,6 +16,7 @@
             "esnext"
         ],
         "allowJs": true,
+        "baseUrl": "src",
         "allowSyntheticDefaultImports": true,
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
@@ -31,7 +32,8 @@
         "./webpack.config.js"
     ],
     "include": [
-        "typings",
-        "compiled_types"
+        "src",
+        "compiled_types",
+        "typings"
     ]
 }

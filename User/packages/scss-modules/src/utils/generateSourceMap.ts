@@ -22,7 +22,7 @@ export async function generateSourceMap(
     const generatedContentSplitByNewLine = rawInputString
         .match(/\[module\.id, `[^`]*`/g)?.[0]
         .match(/`[^`]*`/g)?.[0]
-        .split("\\n");
+        .split("\n");
     if (generatedContentSplitByNewLine == null || generatedContentSplitByNewLine.length === 0) {
         throw new Error("Could not identify generated content from css modules.");
     }

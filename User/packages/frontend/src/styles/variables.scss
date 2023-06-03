@@ -29,10 +29,17 @@ $dark-gray: #616161;
 $white: #fcfff1;
 $black: #263238;
 
-$background: $gray;
+$background: $light-gray;
 
 $font-color: $black;
 $muted-font-color: $gray;
+
+$small-font-size: 12px;
+$font-size: 16px;
+$large-font-size: 24px;
+
+$box-shadow-color: rgba($gray, 0.5);
+$box-shadow-border: 0 1px $box-shadow-color, 0 -1px $box-shadow-color, -1px 0 $box-shadow-color, 1px 0 $box-shadow-color;
 
 $transition: cubic-bezier(0, 0.26, 0, 0.96);
 
